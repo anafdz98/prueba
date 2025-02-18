@@ -15,6 +15,7 @@
         <section class="contenedor">
             <p>Haz clic en el botón para ingresar tus datos y comprobar si eres mayor de edad.</p>
             <button onclick="pedirDatos()">Ingresar Datos</button>
+            <p id="resultado"></p>
         </section>
     </main>
     
@@ -25,17 +26,20 @@
     <script>
         function pedirDatos() {
             let nombre = prompt("Introduce tu nombre:");
-            let edad = parseInt(prompt("Introduce tu edad:"));
+            let edad = prompt("Introduce tu edad:");
+            let resultado = document.getElementById("resultado");
             
-            if (!nombre || isNaN(edad)) {
-                alert("Por favor, introduce datos válidos.");
+            if (!nombre || isNaN(edad) || edad === "") {
+                resultado.textContent = "Por favor, introduce datos válidos.";
                 return;
             }
 
+            edad = parseInt(edad);
+
             if (edad >= 18) {
-                alert(`${nombre}, eres mayor de edad.`);
+                resultado.textContent = `${nombre}, eres mayor de edad.`;
             } else {
-                alert(`${nombre}, eres menor de edad.`);
+                resultado.textContent = `${nombre}, eres menor de edad.`;
             }
         }
     </script>
