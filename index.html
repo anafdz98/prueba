@@ -4,16 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mayor o Menor de Edad</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <h2>Comprobador de Edad</h2>
-    <button onclick="pedirDatos()">Ingresar Datos</button>
-
+    <header>
+        <h1>Comprobador de Edad</h1>
+    </header>
+    
+    <main>
+        <section class="contenedor">
+            <p>Haz clic en el botón para ingresar tus datos y comprobar si eres mayor de edad.</p>
+            <button onclick="pedirDatos()">Ingresar Datos</button>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Comprobador de Edad</p>
+    </footer>
+    
     <script>
         function pedirDatos() {
             let nombre = prompt("Introduce tu nombre:");
             let edad = parseInt(prompt("Introduce tu edad:"));
+            
+            if (!nombre || isNaN(edad)) {
+                alert("Por favor, introduce datos válidos.");
+                return;
+            }
 
             if (edad >= 18) {
                 alert(`${nombre}, eres mayor de edad.`);
@@ -22,6 +39,6 @@
             }
         }
     </script>
-
 </body>
 </html>
+
